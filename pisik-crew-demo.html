@@ -8,6 +8,8 @@
 <meta property="og:title" content="우리 팀 점심, 런치 패스로 더 아끼세요">
 <meta property="og:description" content="단골 팀 전용 · 런치 패스 · 최대 10% 추가 할인 · 상황별 패키지 · 예약주문">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script src="https://cdn.amplitude.com/script/be4ed7cab0435ffca26e59839857372f.js"></script>
+<script>window.amplitude && window.amplitude.init('be4ed7cab0435ffca26e59839857372f', {fetchRemoteConfig:true, autocapture:true});</script>
 <style>
   :root{
     --mint:#2AC1BC; --mint-d:#1A9E99; --mint-l:#E6F8F7;
@@ -268,7 +270,7 @@
       <a href="#packages">상황별 패키지</a>
       <a href="#reserve">예약주문</a>
     </nav>
-    <a href="#download" class="btn btn-primary js-download">앱에서 혜택 받기</a>
+    <a href="#download" class="btn btn-primary js-download" data-cta="header_start">앱에서 혜택 받기</a>
   </div>
 </header>
 
@@ -280,8 +282,8 @@
       <h1>늘 시켜주신 팀 점심,<br>이제 <em>런치 패스</em>로<br>더 아끼세요</h1>
       <p id="hero-sub">주문할수록 쌓이는 추가 할인, 상황별 패키지,<br>회의 시작에 딱 맞춘 예약주문까지 한 번에.</p>
       <div class="ctas">
-        <a href="#download" class="btn btn-primary js-download">앱 받고 런치 패스 시작 →</a>
-        <a href="#benefits" class="btn btn-ghost">혜택 먼저 보기</a>
+        <a href="#download" class="btn btn-primary js-download" data-cta="hero_start">앱 받고 런치 패스 시작 →</a>
+        <a href="#benefits" class="btn btn-ghost" data-cta="hero_benefits">혜택 먼저 보기</a>
       </div>
       <p class="meta">* 최근 6개월 내 단체주문 이력이 있는 기업 고객 대상</p>
     </div>
@@ -351,7 +353,7 @@
         <li>전용 맛집 · 식대 리포트</li>
         <li>언제든 해지 가능</li>
       </ul>
-      <a href="#download" class="btn btn-primary js-download" data-pkg="pass">앱에서 첫 달 무료로 시작</a>
+      <a href="#download" class="btn btn-primary js-download" data-pkg="pass" data-cta="pass_start">앱에서 첫 달 무료로 시작</a>
     </div>
   </div>
 </section>
@@ -420,7 +422,7 @@
           <li><span class="ic">🧾</span><div><b>세금계산서 자동 발행</b><span>법인카드 결제 후 증빙까지 한 번에</span></div></li>
         </ul>
         <div class="price"><span class="from">1인</span><b>12,900원~</b><s>14,300원</s></div>
-        <a href="#download" class="btn btn-primary js-download" data-pkg="seminar">앱에서 회의·세미나 패키지 주문</a>
+        <a href="#download" class="btn btn-primary js-download" data-pkg="seminar" data-cta="pkg_seminar">앱에서 회의·세미나 패키지 주문</a>
       </div>
     </div>
 
@@ -438,7 +440,7 @@
           <li><span class="ic">🚚</span><div><b>야간 배달비 할증 면제</b><span>18시 이후 주문도 할증 없이</span></div></li>
         </ul>
         <div class="price"><span class="from">1인</span><b>9,900원~</b><s>11,000원</s></div>
-        <a href="#download" class="btn btn-primary js-download" data-pkg="night">앱에서 야근 식대 주문</a>
+        <a href="#download" class="btn btn-primary js-download" data-pkg="night" data-cta="pkg_night">앱에서 야근 식대 주문</a>
       </div>
     </div>
 
@@ -456,7 +458,7 @@
           <li><span class="ic">🎁</span><div><b>행사용 일회용품 세트 증정</b><span>100인 이상 주문 시 무료</span></div></li>
         </ul>
         <div class="price"><span class="from">1인</span><b>15,900원~</b><s>18,000원</s></div>
-        <a href="#download" class="btn btn-primary js-download" data-pkg="event">앱에서 행사 상담 신청</a>
+        <a href="#download" class="btn btn-primary js-download" data-pkg="event" data-cta="pkg_event">앱에서 행사 상담 신청</a>
       </div>
     </div>
   </div>
@@ -550,16 +552,16 @@
     <h2>다음 팀 점심부터<br>런치 패스로 아끼세요</h2>
     <p class="lead">앱을 설치하고 기존 계정으로 로그인하면 런치 패스 첫 달 무료 혜택이 자동 지급돼요.</p>
     <div class="stores">
-      <a class="store" id="ios" href="#download" target="_blank" rel="noopener">
+      <a class="store" id="ios" data-cta="store_ios"href="#download" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
         <span><small>Download on the</small><b>App Store</b></span>
       </a>
-      <a class="store" id="aos" href="https://play.google.com/store/apps/details?id=com.sampleapp" target="_blank" rel="noopener">
+      <a class="store" id="aos" data-cta="store_aos"href="https://play.google.com/store/apps/details?id=com.sampleapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m17.1 15.3-3.3-3.3 3.3-3.3 3.7 2.1c1 .6 1 1.9 0 2.4l-3.7 2.1z"/><path fill="#EA4335" d="M13.8 12 3.6 22.2c.3.2.8.2 1.2 0l12.3-6.9-3.3-3.3z"/><path fill="#4285F4" d="M13.8 12 17.1 8.7 4.8 1.8c-.4-.2-.9-.2-1.2 0L13.8 12z"/></svg>
         <span><small>GET IT ON</small><b>Google Play</b></span>
       </a>
     </div>
-    <div class="code">런치 패스 첫 달 무료 코드 <b id="code">LUNCHPASS</b><button type="button" id="copy">복사</button></div>
+    <div class="code">런치 패스 첫 달 무료 코드 <b id="code">LUNCHPASS</b><button type="button" id="copy" data-cta="copy_code">복사</button></div>
   </div>
 </section>
 
@@ -580,7 +582,7 @@
 <!-- ⑭ 모바일 하단 고정 CTA -->
 <div class="sticky-cta" id="sticky">
   <div class="txt">단골 팀 전용<br><b>런치 패스 첫 달 무료</b></div>
-  <a href="#download" class="btn btn-primary js-download">앱 받고 시작하기</a>
+  <a href="#download" class="btn btn-primary js-download" data-cta="sticky_start">앱 받고 시작하기</a>
 </div>
 
 <script>
@@ -612,15 +614,36 @@
 
   document.querySelectorAll('.js-download').forEach(function(a){
     a.addEventListener('click', function(e){
-      track('cta_click', { pkg: a.dataset.pkg || 'general', source: src || 'direct' });
       if (storeUrl) { e.preventDefault(); location.href = storeUrl; }
     });
   });
-  ['ios','aos'].forEach(function(id){
-    document.getElementById(id).addEventListener('click', function(){ track('store_click', { store:id, source:src||'direct' }); });
+
+  // CTA 노출(cta_impression) · 클릭(cta_click) 수집: data-cta 속성이 있는 요소 대상
+  var ctas = document.querySelectorAll('[data-cta]');
+  function ctaProps(el){
+    var sec = el.closest('header, section, .sticky-cta');
+    return {
+      cta_id: el.dataset.cta,
+      cta_text: el.textContent.trim().replace(/\s+/g, ' '),
+      section: sec ? (sec.id || sec.className || sec.tagName.toLowerCase()) : 'unknown',
+      pkg: el.dataset.pkg || null,
+      source: src || 'direct'
+    };
+  }
+  ctas.forEach(function(el){
+    el.addEventListener('click', function(){ track('cta_click', ctaProps(el)); });
   });
+  var seenCta = {};
+  var ctaIO = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var id = e.target.dataset.cta;
+      if (e.isIntersecting && !seenCta[id]) { seenCta[id] = true; track('cta_impression', ctaProps(e.target)); }
+    });
+  }, { threshold:.5 });
+  ctas.forEach(function(el){ ctaIO.observe(el); });
   function track(name, data){
     // 실제 운영 시 GA4 / Meta Pixel / 카카오 픽셀 이벤트로 연결
+    if (window.amplitude) amplitude.track(name, data);
     if (window.gtag) gtag('event', name, data);
     if (window.fbq) fbq('trackCustom', name, data);
     console.log('[track]', name, data);

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기 - Materialize</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 8px;
+    }
+    .card {
+      margin: 0;
+    }
+    .row {
+      margin-bottom: 0;
+    }
+    .input-field {
+      margin-top: 0.5rem;
+    }
+    .result-field {
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title center-align">사칙연산 계산기</span>
+      <p class="center-align grey-text">Materialize 스타일</p>
+
+      <form>
+        <div class="row">
+          <div class="input-field col s4">
+            <input type="number" name="num1" id="num1" step="any">
+            <label for="num1">숫자 1</label>
+          </div>
+          <div class="input-field col s4">
+            <select name="op" class="browser-default">
+              <option value="+">+</option>
+              <option value="-">−</option>
+              <option value="*">×</option>
+              <option value="/">÷</option>
+            </select>
+          </div>
+          <div class="input-field col s4">
+            <input type="number" name="num2" id="num2" step="any">
+            <label for="num2">숫자 2</label>
+          </div>
+        </div>
+        <button type="submit" class="btn waves-effect teal" style="width: 100%;">계산</button>
+
+        <div class="input-field result-field">
+          <input type="text" name="result" id="result" placeholder="결과" readonly style="font-weight: bold;">
+          <label for="result" class="active">결과</label>
+        </div>
+        <p class="message red-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="calc.js"></script>
+  <script>
+    setupCalculator(document.querySelector('form'));
+  </script>
+</body>
+</html>

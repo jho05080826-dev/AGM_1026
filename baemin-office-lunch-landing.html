@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>배민 오피스 런치 | 회사 점심, 이제 고민 끝</title>
+<meta name="description" content="정기 구독 런치, 회의·야근·행사 패키지, 원하는 시간 예약주문, 금액대별 추가할인까지. 회사 점심을 한 번에 해결하세요.">
+<style>
+:root{
+  --mint:#2ac1bc; --mint-d:#17a39e; --mint-l:#e6f8f7;
+  --ink:#1f2933; --sub:#5f6b76; --line:#e5e9ec; --bg:#fff; --soft:#f5f8f8; --accent:#ff6b4a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:76px;word-break:keep-all;overflow-wrap:break-word}
+.sec-cta{margin-top:28px}
+.gap{height:20px}
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:14px}
+.week div{background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 0;text-align:center;font-size:13px;font-weight:700;color:var(--sub)}
+.week div i{display:block;font-style:normal;font-size:22px;margin-top:2px;filter:grayscale(1);opacity:.3}
+.week div.on{border-color:var(--mint);background:var(--mint-l);color:var(--mint-d)}
+.week div.on i{filter:none;opacity:1}
+.weeknote{font-size:13px;color:var(--sub);margin:-4px 0 14px}
+.tier{position:relative;overflow:hidden}
+.tier::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--mint)}
+.tier:nth-child(1)::after{height:8px;opacity:.35}
+.tier:nth-child(2)::after{height:16px;opacity:.6}
+.tier:nth-child(3)::after{height:26px;background:#fff;opacity:.5}
+.art{width:100%;height:auto;display:block}
+.hero-art{margin-bottom:-28px;position:relative;z-index:1;padding:0 18px}
+.timeline{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 18px;margin-bottom:16px}
+.timeline ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:relative}
+.timeline ol::before{content:"";position:absolute;left:12%;right:12%;top:15px;height:3px;background:var(--mint-l)}
+.timeline li{text-align:center;font-size:13px;position:relative}
+.timeline li i{display:grid;place-items:center;width:32px;height:32px;margin:0 auto 6px;border-radius:50%;background:var(--mint);color:#fff;font-style:normal;font-weight:800;font-size:14px}
+.timeline li b{display:block;font-size:14px}
+.timeline li span{color:var(--sub);font-size:12px}
+.timeline li.now i{background:var(--accent);box-shadow:0 0 0 5px rgba(255,107,74,.2)}
+.recap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 26px;max-width:640px}
+.recap span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:99px;font-size:14px;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--mint-d);background:var(--mint-l);padding:4px 12px;border-radius:99px;margin-bottom:12px}
+h2{font-size:clamp(24px,4.5vw,34px);line-height:1.3;letter-spacing:-.02em;margin-bottom:10px}
+.lead{color:var(--sub);font-size:16px;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:14px;padding:16px 26px;font-size:16px;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--mint);color:#fff}
+.btn-primary:hover{background:var(--mint-d)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:800;font-size:18px;color:var(--mint-d);letter-spacing:-.02em}
+.logo small{color:var(--ink);font-weight:600;margin-left:4px}
+header .btn{padding:8px 16px;font-size:14px;border-radius:10px}
+
+/* hero */
+.hero{background:linear-gradient(160deg,#e6f8f7 0%,#fff 70%);padding:56px 0 48px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.2;letter-spacing:-.03em;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--mint-d)}
+.hero p{color:var(--sub);font-size:17px;margin-bottom:24px}
+.chan{display:none;font-size:14px;font-weight:600;color:var(--mint-d);margin-bottom:10px}
+.chan.on{display:block}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.hero-card{background:#fff;border-radius:24px;padding:22px;box-shadow:0 20px 50px rgba(23,163,158,.18)}
+.hero-card .row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.hero-card .row:last-child{border:0}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--mint-l);display:grid;place-items:center;font-size:22px;flex:none}
+.hero-card b{display:block;font-size:15px}
+.hero-card span{font-size:13px;color:var(--sub)}
+.tag{margin-left:auto;font-size:12px;font-weight:700;background:var(--accent);color:#fff;padding:3px 9px;border-radius:99px;white-space:nowrap}
+
+/* pain */
+.pain{padding:28px 0;background:var(--ink);color:#fff}
+.pain ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;font-weight:600;font-size:15px}
+.pain li::before{content:"✓ ";color:var(--mint)}
+
+/* cards */
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.times{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+.time{padding:10px 16px;border-radius:12px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:15px}
+.time small{display:block;font-weight:500;font-size:12px;color:var(--sub)}
+.time.on{border-color:var(--mint);background:var(--mint-l);color:var(--mint-d)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 12px 30px rgba(0,0,0,.08);transform:translateY(-3px)}
+.card .ico{margin-bottom:14px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:var(--sub);font-size:15px}
+.card ul{list-style:none;margin-top:12px;font-size:14px;color:var(--ink)}
+.card li{padding:3px 0}
+.card li::before{content:"· ";color:var(--mint-d);font-weight:800}
+.soft{background:var(--soft)}
+
+/* subscription */
+.sub{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.plans{display:grid;gap:12px}
+.plan{border:2px solid var(--line);border-radius:18px;padding:18px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.plan.best{border-color:var(--mint);background:var(--mint-l)}
+.plan b{font-size:17px}
+.plan span{font-size:13px;color:var(--sub);display:block}
+.plan .off{font-size:20px;font-weight:800;color:var(--mint-d);white-space:nowrap}
+.checks{list-style:none;margin:16px 0 24px}
+.checks li{padding:6px 0 6px 28px;position:relative}
+.checks li::before{content:"✓";position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--mint);color:#fff;font-size:12px;display:grid;place-items:center;font-weight:800}
+
+/* delivery fee */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tier{background:#fff;border-radius:20px;padding:26px 20px;text-align:center;border:1px solid var(--line)}
+.tier.top{background:var(--mint);color:#fff;border-color:var(--mint)}
+.tier small{display:block;font-size:14px;opacity:.8}
+.tier strong{display:block;font-size:30px;margin:6px 0;letter-spacing:-.02em}
+.note{font-size:12px;color:var(--sub);margin-top:14px}
+
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{position:relative;padding:22px 18px;background:#fff;border-radius:18px;border:1px solid var(--line)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--mint);color:#fff;font-weight:800;margin-bottom:10px}
+.step b{display:block;margin-bottom:2px}
+.step span{font-size:14px;color:var(--sub)}
+
+/* voices */
+.voice{background:#fff;border-radius:20px;padding:22px;border:1px solid var(--line)}
+.voice p{font-size:15px;margin-bottom:12px}
+.voice span{font-size:13px;color:var(--sub)}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:16px 4px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--mint-d);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--sub);font-size:15px}
+
+/* final cta */
+.final{background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final .lead{color:rgba(255,255,255,.9)}
+.stores{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.btn-white{background:#fff;color:var(--mint-d)}
+.qr{display:none;margin:0 auto;background:#fff;color:var(--ink);border-radius:20px;padding:18px;width:max-content}
+.qr #qrcode{width:140px;height:140px;margin:0 auto 8px}
+.qr small{display:block;font-size:12px;color:var(--sub)}
+@media(hover:hover) and (min-width:900px){.qr{display:block}}
+
+footer{padding:32px 0;font-size:12px;color:var(--sub);background:var(--soft)}
+footer p{margin-bottom:6px}
+
+/* sticky bottom cta */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:center;box-shadow:0 -6px 20px rgba(0,0,0,.06)}
+.sticky span{font-size:14px;font-weight:600}
+.sticky .btn{padding:12px 22px;font-size:15px}
+
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){
+  section{padding:48px 0}
+  .hero .wrap,.sub{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .sticky span{display:none}
+  .sticky .btn{width:100%}
+  .hero-art{max-width:360px;margin:0 auto -24px}
+  .hero-cta .btn{flex:1 1 auto}
+}
+@media(max-width:600px){.g3,.g4{grid-template-columns:1fr}}
+@media(max-width:340px){
+  .wrap{padding:0 14px}
+  .hero{padding:36px 0 36px}
+  .hero h1{font-size:25px}
+  .hero p{font-size:15px}
+  .btn{padding:14px 16px;font-size:15px}
+  .hero-cta .btn{width:100%}
+  .tag{display:none}
+  .steps{grid-template-columns:1fr}
+  .timeline ol{grid-template-columns:1fr 1fr;row-gap:16px}
+  .timeline ol::before{display:none}
+  .card,.tier{padding:20px}
+  .plan{flex-direction:column;align-items:flex-start}
+  h2{font-size:22px}
+  .tier strong{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">배민<small>오피스 런치</small></a>
+    <a class="btn btn-primary js-app" href="#download" data-pos="header">앱 받기</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="chan" id="chan"></div>
+      <h1>오늘 점심, <em>또 뭐 먹지?</em><br>회사 점심은 이제<br>구독으로 끝내세요</h1>
+      <p>매일 메뉴 고르는 시간, 단체 주문 취합하는 수고, 식비 부담까지.<br>배민 하나로 우리 팀 점심을 한 번에 해결해요.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary js-app" href="#download" data-pos="hero">앱 다운로드하고 혜택 받기</a>
+        <a class="btn btn-ghost" href="#benefits">혜택 먼저 보기</a>
+      </div>
+    </div>
+    <div>
+    <div class="hero-art">
+      <svg class="art" viewBox="0 0 400 190" role="img" aria-label="11시 50분에 맞춰 도착하는 도시락과 추가할인 태그">
+        <rect x="0" y="150" width="400" height="14" rx="7" fill="#c9ecea"/>
+        <!-- 도시락 -->
+        <rect x="40" y="70" width="170" height="86" rx="16" fill="#fff" stroke="#2ac1bc" stroke-width="4"/>
+        <rect x="52" y="82" width="70" height="62" rx="10" fill="#ffd9a8"/>
+        <rect x="128" y="82" width="70" height="28" rx="10" fill="#bfe8a8"/>
+        <rect x="128" y="116" width="70" height="28" rx="10" fill="#ffb4a2"/>
+        <circle cx="87" cy="113" r="16" fill="#fff6e5"/>
+        <path d="M60 70 q25 -34 50 0" fill="none" stroke="#17a39e" stroke-width="4" stroke-linecap="round"/>
+        <!-- 시계 -->
+        <circle cx="285" cy="82" r="46" fill="#fff" stroke="#ff6b4a" stroke-width="6"/>
+        <path d="M285 82 L285 54 M285 82 L304 92" stroke="#1f2933" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="285" cy="82" r="5" fill="#ff6b4a"/>
+        <rect x="248" y="124" width="74" height="24" rx="12" fill="#ff6b4a"/>
+        <text x="285" y="141" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">11:50 도착</text>
+        <!-- 할인 태그 -->
+        <g transform="rotate(-8 350 40)"><rect x="312" y="16" width="82" height="34" rx="17" fill="#1f2933"/>
+        <text x="353" y="38" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">추가 할인</text></g>
+        <!-- 배달 라인 -->
+        <path d="M10 40 h30 M0 56 h22" stroke="#2ac1bc" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+      </svg>
+    </div>
+    <div class="hero-card" aria-label="혜택 요약">
+      <div class="row"><div class="ico">🍱</div><div><b>정기 구독 런치</b><span>매일 고민 없이, 할인은 덤</span></div><div class="tag">구독 할인</div></div>
+      <div class="row"><div class="ico">📋</div><div><b>상황별 패키지</b><span>회의 · 야근 · 사내 행사</span></div><div class="tag">단체 특화</div></div>
+      <div class="row"><div class="ico">⏰</div><div><b>예약주문</b><span>점심시간·회의 시작에 맞춰 도착</span></div><div class="tag">시간 지정</div></div>
+      <div class="row"><div class="ico">🛵</div><div><b>금액대별 추가할인</b><span>많이 시킬수록 더 아껴요</span></div><div class="tag">추가 할인</div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 공감 -->
+<div class="pain">
+  <div class="wrap"><ul>
+    <li>점심 메뉴 정하다 점심시간이 끝난다</li>
+    <li>단체 주문 취합이 매번 내 몫이다</li>
+    <li>야근·회의 식대 처리가 번거롭다</li>
+    <li>배달이 회의·점심 시간에 늦게 온다</li>
+  </ul></div>
+</div>
+
+<!-- 3. 혜택 개요 -->
+<section id="benefits">
+  <div class="wrap">
+    <span class="eyebrow">BENEFITS</span>
+    <h2>직장인 점심을 위한 4가지 혜택</h2>
+    <p class="lead">우리 팀에 맞는 방식으로 골라 쓰세요.</p>
+    <div class="grid g4">
+      <a class="card" href="#subscribe"><div class="ico">🍱</div><h3>정기 구독형 런치</h3><p>요일·인원을 정해두면 매일 알아서 도착해요.</p><ul><li>메뉴 고민 제로</li><li>구독 회원 전용 할인</li></ul></a>
+      <a class="card" href="#packages"><div class="ico">📋</div><h3>상황별 패키지</h3><p>회의, 야근, 행사에 딱 맞춘 구성이에요.</p><ul><li>회의·세미나 패키지</li><li>야근 식대 패키지</li><li>사내 행사 패키지</li></ul></a>
+      <a class="card" href="#reserve"><div class="ico">⏰</div><h3>예약주문</h3><p>원하는 도착 시간을 미리 정해두세요.</p><ul><li>점심시간에 맞춰 도착</li><li>회의 시작 전 세팅 완료</li></ul></a>
+      <a class="card" href="#fee"><div class="ico">🛵</div><h3>금액대별 추가할인</h3><p>주문 금액대별로 할인이 더해져요.</p><ul><li>금액이 클수록 큰 할인</li><li>단체 주문에 유리</li></ul></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 정기 구독 -->
+<section class="soft" id="subscribe">
+  <div class="wrap sub">
+    <div>
+      <span class="eyebrow">SUBSCRIPTION</span>
+      <h2>한 번 설정하면, 매일 점심이 도착해요</h2>
+      <p class="lead">요일과 인원만 정하세요. 일정 변경·건너뛰기·해지는 앱에서 언제든.</p>
+      <ul class="checks">
+        <li>평일 정기 배송, 원하는 요일만 선택</li>
+        <li>팀원별 메뉴 선택 또는 한 메뉴로 통일</li>
+        <li>결제·영수증을 한 곳에서 관리</li>
+        <li>원하는 날은 건너뛰기, 언제든 해지</li>
+      </ul>
+      <a class="btn btn-primary js-app" href="#download" data-pos="subscribe">구독 시작하러 앱 열기</a>
+    </div>
+    <div class="plans">
+      <div class="week" aria-label="주 3회 구독 예시: 월·수·금 도착">
+        <div class="on">월<i>🍱</i></div><div>화<i>🍱</i></div><div class="on">수<i>🍱</i></div><div>목<i>🍱</i></div><div class="on">금<i>🍱</i></div>
+      </div>
+      <p class="weeknote">예) 주 3회 구독 — 월·수·금 점심이 자동으로 도착해요.</p>
+      <!-- 예시 값: 실제 요금/할인율로 교체하세요 -->
+      <div class="plan"><div><b>주 1회 구독</b><span>가볍게 시작</span></div><div class="off">N% 할인</div></div>
+      <div class="plan best"><div><b>주 3회 구독 · 인기</b><span>가장 많이 선택해요</span></div><div class="off">N% 할인</div></div>
+      <div class="plan"><div><b>주 5회 구독</b><span>점심 걱정 완전 해결</span></div><div class="off">N% 할인</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 상황별 패키지 -->
+<section id="packages">
+  <div class="wrap">
+    <span class="eyebrow">PACKAGES</span>
+    <h2>상황에 딱 맞는 패키지</h2>
+    <p class="lead">인원과 시간만 알려주세요. 구성은 배민이 맞춰드려요.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ico">📊</div><h3>회의·세미나 패키지</h3><p>시간 맞춰 한 번에 도착, 나눠 먹기 편한 구성.</p><ul><li>도시락·샌드위치·간식 구성</li><li>예약 배달 지원</li><li>인원수 기준 추천</li></ul></div>
+      <div class="card"><div class="ico">🌙</div><h3>야근 식대 패키지</h3><p>야근 저녁, 식대 처리까지 간편하게.</p><ul><li>저녁 시간대 전용 메뉴</li><li>법인 결제·영수증 정리</li><li>팀 단위 주문 취합</li></ul></div>
+      <div class="card"><div class="ico">🎉</div><h3>사내 행사 패키지</h3><p>워크숍, 팀 회식, 기념일 행사까지.</p><ul><li>대용량 케이터링 구성</li><li>행사 일정 맞춤 배송</li><li>여러 매장 묶음 주문</li></ul></div>
+    </div>
+    <div class="sec-cta"><a class="btn btn-primary js-app" href="#download" data-pos="packages">패키지 주문하러 앱 열기</a></div>
+  </div>
+</section>
+
+<!-- 5-2. 예약주문 -->
+<section id="reserve">
+  <div class="wrap sub">
+    <div>
+      <span class="eyebrow">RESERVATION</span>
+      <h2>원하는 시간에 딱 맞춰 도착해요</h2>
+      <p class="lead">도착 시간을 미리 지정하면, 점심시간이나 회의 시작에 맞춰 배달돼요.</p>
+      <ul class="checks">
+        <li>하루 전부터 도착 시간 예약</li>
+        <li>점심시간·회의 시작 시간에 맞춘 배달</li>
+        <li>구독·상황별 패키지와 함께 사용 가능</li>
+      </ul>
+      <a class="btn btn-primary js-app" href="#download" data-pos="reserve">예약주문 해보러 앱 열기</a>
+    </div>
+    <div>
+      <div class="timeline" aria-label="예약주문 흐름">
+        <ol>
+          <li><i>1</i><b>전날·당일</b><span>도착 시간 예약</span></li>
+          <li><i>2</i><b>예약 확정</b><span>알림으로 안내</span></li>
+          <li class="now"><i>⏰</i><b>11:50</b><span>점심·회의 전 도착</span></li>
+          <li><i>4</i><b>12:00</b><span>바로 식사 시작</span></li>
+        </ol>
+      </div>
+      <b>도착 시간 선택 (예시)</b>
+      <div class="times" aria-hidden="true">
+        <div class="time">10:30<small>회의 전</small></div>
+        <div class="time on">11:50<small>점심 도착</small></div>
+        <div class="time">12:30<small>2부 점심</small></div>
+        <div class="time">18:30<small>야근 저녁</small></div>
+      </div>
+      <p class="note">※ 예약 가능 시간·마감 기준은 서비스 정책에 따라 다를 수 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 금액대별 추가할인 -->
+<section class="soft" id="fee">
+  <div class="wrap">
+    <span class="eyebrow">EXTRA DISCOUNT</span>
+    <h2>많이 시킬수록, 추가할인도 커져요</h2>
+    <p class="lead">주문 금액대별로 추가할인이 자동 적용돼요.</p>
+    <!-- 예시 금액: 실제 정책에 맞게 교체하세요 -->
+    <div class="tiers">
+      <div class="tier"><small>5만원 이상</small><strong>추가 3% 할인</strong><small>소규모 팀</small></div>
+      <div class="tier"><small>10만원 이상</small><strong>추가 5% 할인</strong><small>부서 단위</small></div>
+      <div class="tier top"><small>20만원 이상</small><strong>추가 10% 할인</strong><small>행사·대규모</small></div>
+    </div>
+    <p class="note">※ 위 금액·할인액은 예시입니다. 실제 적용 조건은 앱 내 쿠폰/이벤트 안내를 확인하세요.</p>
+    <div class="sec-cta"><a class="btn btn-primary js-app" href="#download" data-pos="fee">추가할인 받으러 앱 열기</a></div>
+  </div>
+</section>
+
+<!-- 7. 이용 방법 -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2>시작은 4단계, 3분이면 충분해요</h2>
+    <div class="gap"></div>
+    <div class="steps">
+      <div class="step"><b>앱 설치</b><span>배민 앱 다운로드 후 로그인</span></div>
+      <div class="step"><b>상황 선택</b><span>구독 · 회의 · 야근 · 행사</span></div>
+      <div class="step"><b>도착 시간 예약</b><span>인원·주소와 원하는 도착 시간 지정</span></div>
+      <div class="step"><b>혜택 자동 적용</b><span>구독·예약·추가할인 혜택까지 한 번에</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 후기 -->
+<section class="soft">
+  <div class="wrap">
+    <span class="eyebrow">REVIEWS</span>
+    <h2>먼저 써본 팀들의 이야기</h2>
+    <div class="gap"></div>
+    <!-- 예시 문구: 실제 고객 후기로 교체하세요 -->
+    <div class="grid g3">
+      <div class="voice"><p>“구독으로 점심 주문 취합하던 시간이 사라졌어요.”</p><span>IT기업 총무팀 · 정기 구독 (예시)</span></div>
+      <div class="voice"><p>“회의 시작 10분 전에 맞춰 도착해서 세팅이 편했어요.”</p><span>마케팅팀 · 예약주문 (예시)</span></div>
+      <div class="voice"><p>“워크숍 케이터링을 시켰더니 추가할인까지 붙었어요.”</p><span>인사팀 · 행사 패키지·추가할인 (예시)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section>
+  <div class="wrap" style="max-width:760px">
+    <span class="eyebrow">FAQ</span>
+    <h2>자주 묻는 질문</h2>
+    <div class="gap"></div>
+    <details><summary>구독은 언제든 해지할 수 있나요?</summary><p>앱에서 건너뛰기·일시중지·해지를 직접 설정할 수 있습니다. (세부 정책은 서비스 약관 기준으로 수정하세요)</p></details>
+    <details><summary>법인카드·식대 정산도 가능한가요?</summary><p>법인 결제 및 영수증 발급을 지원합니다. (실제 지원 범위에 맞게 수정하세요)</p></details>
+    <details><summary>예약주문은 언제까지 할 수 있나요?</summary><p>원하는 도착 시간을 미리 지정해 주문할 수 있습니다. 예약 가능 시간과 마감 기준은 앱에서 안내됩니다. (실제 정책에 맞게 수정하세요)</p></details>
+    <details><summary>추가할인은 어떻게 적용되나요?</summary><p>주문 금액대에 따라 결제 시 자동 적용됩니다. 쿠폰 중복 사용 여부는 앱에서 확인해주세요.</p></details>
+    <details><summary>몇 명부터 주문할 수 있나요?</summary><p>소규모 팀부터 대규모 행사까지 가능합니다. 패키지별 최소 인원은 앱에서 안내됩니다.</p></details>
+  </div>
+</section>
+
+<!-- 10. 최종 CTA -->
+<section class="final" id="download">
+  <div class="wrap">
+    <h2>오늘부터 우리 팀 점심,<br>배민으로 해결하세요</h2>
+    <p class="lead">앱을 설치하고 구독·패키지·예약주문·추가할인 혜택을 바로 확인하세요.</p>
+    <div class="recap"><span>🍱 정기 구독</span><span>📋 상황별 패키지</span><span>⏰ 예약주문</span><span>🛵 금액대별 추가할인</span></div>
+    <div class="stores">
+      <a class="btn btn-white js-store" data-os="ios" href="#" data-pos="final-ios"> App Store</a>
+      <a class="btn btn-white js-store" data-os="android" href="#" data-pos="final-android">▶ Google Play</a>
+    </div>
+    <div class="qr"><div id="qrcode"></div><small>PC에서 보셨나요? 휴대폰으로 QR을 스캔하세요</small></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>※ 본 페이지의 할인율·금액·후기는 예시이며, 서비스 정책에 따라 변경될 수 있습니다.</p>
+    <p>※ 혜택은 앱 내 안내 및 이용 조건에 따라 제공됩니다.</p>
+    <p>© 우아한형제들 · 개인정보처리방침 · 이용약관</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <span>구독 · 패키지 · 예약주문 · 추가할인, 앱에서 한 번에 🍱</span>
+  <a class="btn btn-primary js-app" href="#download" data-pos="sticky">앱 다운로드</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  /* ===== 설정: 실제 값으로 교체 ===== */
+  var LINKS = {
+    ios:     'https://apps.apple.com/kr/app/id000000000',          // TODO: 실제 App Store 링크
+    android: 'https://play.google.com/store/apps/details?id=com.example.baemin', // TODO: 실제 Play 링크
+    web:     'https://example.com/app'                               // TODO: OS 자동판별/딥링크 중간 페이지
+  };
+
+  /* ===== 유입 채널별 맞춤 문구 (?utm_source=...) ===== */
+  var CHANNEL_MSG = {
+    facebook:  '페이스북에서 오셨군요! 직장인 점심 혜택을 확인하세요',
+    instagram: '인스타그램에서 오셨군요! 직장인 점심 혜택을 확인하세요',
+    threads:   '스레드에서 오셨군요! 직장인 점심 혜택을 확인하세요',
+    youtube:   '유튜브에서 오셨군요! 직장인 점심 혜택을 확인하세요',
+    community: '커뮤니티에서 오셨군요! 직장인 점심 혜택을 확인하세요',
+    bus:       '버스에서 보셨나요? 출퇴근길에 바로 앱을 받아보세요',
+    subway_qr: '지하철역 QR로 오셨군요! 지금 앱 설치하고 혜택 받으세요'
+  };
+  var qs = new URLSearchParams(location.search);
+  var src = (qs.get('utm_source') || '').toLowerCase();
+  var chan = document.getElementById('chan');
+  if (CHANNEL_MSG[src]) { chan.textContent = CHANNEL_MSG[src]; chan.classList.add('on'); }
+
+  /* ===== OS 판별 + UTM 승계 ===== */
+  var ua = navigator.userAgent || '';
+  var os = /iPhone|iPad|iPod/i.test(ua) ? 'ios' : (/Android/i.test(ua) ? 'android' : 'web');
+
+  function withUtm(url){
+    var u = new URL(url), keep = ['utm_source','utm_medium','utm_campaign','utm_content'];
+    keep.forEach(function(k){ if (qs.get(k)) u.searchParams.set(k, qs.get(k)); });
+    return u.toString();
+  }
+  function storeUrl(target){ try { return withUtm(LINKS[target]); } catch(e){ return LINKS[target]; } }
+  function track(pos){
+    // TODO: GA4/Meta Pixel 등 연결 (예: gtag('event','app_cta_click',{position:pos,channel:src}))
+    if (window.console) console.log('CTA click', pos, src || '(direct)');
+  }
+
+  document.querySelectorAll('.js-store').forEach(function(a){
+    a.href = storeUrl(a.dataset.os);
+    a.addEventListener('click', function(){ track(a.dataset.pos); });
+  });
+  document.querySelectorAll('.js-app').forEach(function(a){
+    a.addEventListener('click', function(e){
+      track(a.dataset.pos);
+      // 모바일: 바로 스토어로 / PC: 하단 QR 영역으로 스크롤
+      if (os !== 'web') { e.preventDefault(); location.href = storeUrl(os); }
+    });
+  });
+
+  /* ===== PC용 QR ===== */
+  try {
+    var qrUrl = withUtm(LINKS.web);
+    var u = new URL(qrUrl); u.searchParams.set('utm_medium','landing_qr');
+    new QRCode(document.getElementById('qrcode'), {text:u.toString(), width:140, height:140});
+  } catch(e){}
+})();
+</script>
+</body>
+</html>

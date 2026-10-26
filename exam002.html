@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exam002</title>
+  <style>
+    img[data-desc] {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    body {
+      padding-bottom: 80px;
+    }
+    #food-desc {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 600px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 12px 16px;
+      background: #333;
+      color: #fff;
+      border-radius: 8px;
+    }
+    img[data-desc]:hover {
+      outline: 3px solid red;
+    }
+    #food-desc[hidden] {
+      display: none;
+    }
+    .album-list img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <section style="text-align: center;">
+    <h2 style="color: red;">내가 좋아하는 메뉴</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li>중식
+        <ul style="display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0;">
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Jajangmyeon.jpg/500px-Jajangmyeon.jpg" alt="짜장면" width="200" data-desc="춘장에 돼지고기와 양파를 볶아 만든 검은 소스를 면에 비벼 먹는 한국식 중화요리입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Jjampong.JPG/500px-Jjampong.JPG" alt="짬뽕" width="200" data-desc="해산물과 채소를 고춧가루와 함께 볶아 끓인 얼큰하고 빨간 국물의 면 요리입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tangsuyuk.jpg/500px-Tangsuyuk.jpg" alt="탕수육" width="200" data-desc="튀김옷을 입혀 바삭하게 튀긴 돼지고기에 새콤달콤한 소스를 곁들인 요리입니다."></li>
+        </ul>
+      </li>
+      <li>일식
+        <ul style="display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0;">
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/500px-Sushi_platter.jpg" alt="초밥" width="200" data-desc="식초로 간을 한 밥 위에 생선회 같은 재료를 올려 먹는 일본 대표 요리입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg/500px-Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg" alt="라멘" width="200" data-desc="진한 육수에 면과 차슈, 계란 등을 올려 먹는 일본식 국수입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/%22Amai-Yuwaku%22_Special_Loin_Pork_Cutlet1.jpg/500px-%22Amai-Yuwaku%22_Special_Loin_Pork_Cutlet1.jpg" alt="돈가스" width="200" data-desc="돼지고기에 빵가루를 입혀 두툼하고 바삭하게 튀긴 일본식 커틀릿입니다."></li>
+        </ul>
+      </li>
+      <li>양식
+        <ul style="display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0;">
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg/500px-%28Pasta%29_by_David_Adam_Kess_%28pic.2%29.jpg" alt="파스타" width="200" data-desc="밀가루 반죽으로 만든 면을 토마토, 크림 등 다양한 소스와 함께 먹는 이탈리아 요리입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/500px-Pizza-3007395.jpg" alt="피자" width="200" data-desc="얇게 편 반죽에 토마토 소스와 치즈, 여러 토핑을 올려 구운 이탈리아 요리입니다."></li>
+          <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Steak_with_shitaki_mushrooms.jpg/500px-Steak_with_shitaki_mushrooms.jpg" alt="스테이크" width="200" data-desc="두툼한 소고기를 원하는 굽기로 구워 먹는 서양 요리입니다."></li>
+        </ul>
+      </li>
+    </ul>
+    <p id="food-desc" hidden></p>
+  </section>
+
+  <section style="text-align: center;">
+    <h2 style="color: yellow;">내가 좋아하는 아이돌</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li>빅뱅
+        <ul class="album-list" style="display: flex; justify-content: center; gap: 10px; list-style: none; padding: 0;">
+          <li>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Always_%28EP%29.jpeg/330px-Always_%28EP%29.jpeg" alt="Always 앨범 표지" width="150" data-title="거짓말" data-date="2007.08.16" data-desc="미니앨범 Always의 타이틀곡으로, 지드래곤이 작사·작곡해 빅뱅을 최고의 인기 그룹으로 만든 대표곡입니다.">
+            <p>거짓말</p>
+          </li>
+          <li>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/BIGBANG_Hot_Issue.jpg/330px-BIGBANG_Hot_Issue.jpg" alt="Hot Issue 앨범 표지" width="150" data-title="마지막 인사" data-date="2007.11.22" data-desc="미니앨범 Hot Issue의 타이틀곡으로, 이별을 신나는 멜로디로 풀어낸 곡입니다.">
+            <p>마지막 인사</p>
+          </li>
+          <li>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Stand_Up_%28Big_Bang_album%29.jpg/330px-Stand_Up_%28Big_Bang_album%29.jpg" alt="Stand Up 앨범 표지" width="150" data-title="하루하루" data-date="2008.08.08" data-desc="미니앨범 Stand Up의 타이틀곡으로, 헤어진 연인을 잊지 못하는 슬픈 마음을 담은 곡입니다.">
+            <p>하루하루</p>
+          </li>
+          <li>
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b6/BIGBANG_-_BANG_BANG_BANG.jpeg" alt="BANG BANG BANG 앨범 표지" width="150" data-title="뱅뱅뱅" data-date="2015.06.01" data-desc="MADE 프로젝트 싱글 A의 수록곡으로, 강렬한 비트에 '떼창'을 부르는 신나는 파티 곡입니다.">
+            <p>뱅뱅뱅</p>
+          </li>
+          <li>
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b2/BIGBANG_-_MADE.jpg" alt="MADE 앨범 표지" width="150" data-title="LOSER" data-date="2015.05.01" data-desc="MADE 프로젝트의 첫 싱글 M의 타이틀곡으로, 화려한 모습 뒤의 외로움을 고백하는 곡입니다.">
+            <p>LOSER</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <script>
+    var foodDesc = document.getElementById('food-desc');
+    var current = null;
+
+    document.querySelectorAll('img[data-desc]').forEach(function (img) {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function () {
+        // 같은 사진을 다시 누르면 닫고, 다른 사진을 누르면 그 설명으로 바꾼다
+        if (current === img) {
+          foodDesc.hidden = true;
+          current = null;
+        } else {
+          var name = img.dataset.title || img.alt;
+          if (img.dataset.date) {
+            name += ' (' + img.dataset.date + ' 발매)';
+          }
+          foodDesc.textContent = name + ': ' + img.dataset.desc;
+          foodDesc.hidden = false;
+          current = img;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

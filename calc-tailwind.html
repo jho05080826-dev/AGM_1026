@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기 - Tailwind</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+</head>
+<body class="bg-transparent p-2">
+  <div class="rounded-2xl bg-white p-4 shadow-lg ring-1 ring-slate-200">
+    <h1 class="text-center text-xl font-bold text-slate-800">사칙연산 계산기</h1>
+    <p class="mb-3 text-center text-sm text-slate-500">Tailwind 스타일</p>
+
+    <form>
+      <div class="mb-2 flex gap-1">
+        <input type="number" name="num1" placeholder="숫자 1" step="any"
+          class="w-full min-w-0 rounded-lg border border-slate-300 px-2 py-1 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200">
+        <select name="op"
+          class="rounded-lg border border-slate-300 bg-white px-2 py-1 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200">
+          <option value="+">+</option>
+          <option value="-">−</option>
+          <option value="*">×</option>
+          <option value="/">÷</option>
+        </select>
+        <input type="number" name="num2" placeholder="숫자 2" step="any"
+          class="w-full min-w-0 rounded-lg border border-slate-300 px-2 py-1 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200">
+      </div>
+      <button type="submit"
+        class="mb-2 w-full rounded-lg bg-indigo-600 py-1 font-semibold text-white hover:bg-indigo-700">
+        계산
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span class="shrink-0 text-sm font-semibold text-slate-600">결과</span>
+        <input type="text" name="result" placeholder="결과" readonly
+          class="w-full min-w-0 rounded-lg border border-slate-200 bg-slate-100 px-2 py-1 font-bold">
+      </div>
+      <p class="message mt-2 text-center text-sm text-red-600"></p>
+    </form>
+  </div>
+
+  <script src="calc.js"></script>
+  <script>
+    setupCalculator(document.querySelector('form'));
+  </script>
+</body>
+</html>
